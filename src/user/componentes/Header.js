@@ -65,7 +65,7 @@ function Header(props) {
           <div className="mx-auto">
             <nav className="site-navigation position-relative text-right" role="navigation">
               <ul className="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
-                <li className="active">
+                <li >
                   <Link to={"/"} className="nav-link text-left">Home</Link>
                 </li>
                 <li>

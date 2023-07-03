@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useFormik } from 'formik';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -17,7 +18,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import SailingIcon from '@mui/icons-material/Sailing';
+import HouseboatIcon from '@mui/icons-material/Houseboat';
 import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -99,7 +102,8 @@ export default function Panel({children}) {
     setOpen(false);
   };
   const listData =[
-    {label:'BoatList',icon:<SailingIcon />,to:'./boatlist'},
+    {label:'Boat Model',icon:<SailingIcon />,to:'./boatlist'},
+    {label:'Facilities',icon:<HouseboatIcon />,to:'./facilities'},
     
   ]
 
