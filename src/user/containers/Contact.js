@@ -6,17 +6,42 @@ import * as Yup from 'yup'
 function Contact(props) {
 
     let wbcontactSchema = Yup.object({
-        fname: Yup.string().required('Please enter first name').matches(/^[a-z]+$/ , 'Please enter valid name'),
+        fname: Yup.string().required('Please enter first name').matches(/^[a-zA-Z ]+$/, 'Please enter valid first name'),
+        lname: Yup.string().required('Please enter last name').matches(/^[a-zA-Z ]+$/, 'Please enter valid last name'),
+        email: Yup.string().required('please enter email')
+            .email('please enter valid email'),
+
+        mobile: Yup.string()
+            .required('please enter mobile number')
+            .matches(
+                /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/, 'please enter 10 digit mobile number'
+            ),
+        msg: Yup.string()
+            .required("plase enter message")
+            .test("add", "Maximum 100 word allow", function (val) {
+                let arr = val.split(" ");
+                if (arr.length > 5) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }),
     })
 
     const formik = useFormik({
         initialValues: {
+            fname: '',
+            lname: '',
+            email: '',
+            mobile: '',
+            msg: ''
 
         },
         validationSchema: wbcontactSchema,
-        onSubmit: values => {
-
-        },
+        onsubmit: (values, action) => {
+            action.resetForm()
+            console.log(values);
+        }
     })
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = formik
@@ -43,7 +68,7 @@ function Contact(props) {
                         method="post"
                         role="form"
                         className="php-email-form"
-                        onSubmit={() => handleSubmit}
+                        onSubmit={handleSubmit}
                     >
                         <div className="row">
                             <div className="col-md-6 form-group">
@@ -68,7 +93,7 @@ function Contact(props) {
                                     onBlur={handleBlur}
                                     value={values.lname}
                                 />
-                                   <span style={{color : 'red'}}  className='error'>{errors.lname && touched.lname ? errors.lname : null}</span>
+                                <span style={{ color: 'red' }} className='error'>{errors.lname && touched.lname ? errors.lname : null}</span>
                             </div>
                         </div>
                         <div className="row">
@@ -82,7 +107,7 @@ function Contact(props) {
                                     onBlur={handleBlur}
                                     value={values.email}
                                 />
-                                   <span style={{color : 'red'}}  className='error'>{errors.email && touched.email ? errors.email : null}</span>
+                                <span style={{ color: 'red' }} className='error'>{errors.email && touched.email ? errors.email : null}</span>
                             </div>
                             <div className="col-md-6 form-group">
                                 <label htmlFor="tel">Tel. Number</label>
@@ -95,7 +120,7 @@ function Contact(props) {
                                     value={values.mobile}
 
                                 />
-                                   <span style={{color : 'red'}}  className='error'>{errors.mobile && touched.mobile ? errors.mobile : null}</span>
+                                <span style={{ color: 'red' }} className='error'>{errors.mobile && touched.mobile ? errors.mobile : null}</span>
                             </div>
                         </div>
                         <div className="row">
@@ -112,15 +137,20 @@ function Contact(props) {
                                     onBlur={handleBlur}
                                     value={values.msg}
                                 />
-                                   <span style={{color : 'red'}}  className='error'>{errors.msg && touched.msg ? errors.msg : null}</span>
+                                <span style={{ color: 'red' }} className='error'>{errors.msg && touched.msg ? errors.msg : null}</span>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-12">
-                                <input type="submit"
+                                {/* <input type="submit"
                                     defaultValue="Send Message"
                                     className="btn btn-primary rounded-0 px-3 px-5"
-                                />
+                                /> */}
+
+
+                                <div className="btn">
+                                    <input type="submit" defaultValue="Submit" className="btn btn-primary rounded-0 px-3 px-5" />
+                                </div>
                             </div>
                         </div>
                     </form>

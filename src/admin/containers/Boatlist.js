@@ -14,13 +14,12 @@ import { DataGrid, GridDeleteIcon } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-
 // ...............................//
-
 
 export default function Boatlist() {
     const [open, setOpen] = React.useState(false);
     const [bdata, setbdata] = React.useState([]);
+    const [updatedata , setupdatedata] = React.useState(null)
 
     React.useEffect(() => {
         let boat = JSON.parse(localStorage.getItem('boat'));
@@ -55,9 +54,11 @@ export default function Boatlist() {
         handleClickOpen()
 
         formik.setValues(evalue)
+        setupdatedata(evalue)
+
     }
 
-    const handleAdd = (data) => {
+    const handleSubmitdata = (data) => {
         console.log(data);
         handleClose()
 
@@ -71,10 +72,24 @@ export default function Boatlist() {
             localStorage.setItem("boat", JSON.stringify([newdata]))
             setbdata([newdata])
         } else {
-            getlocaldata.push(newdata)
-            console.log(getlocaldata);
-            localStorage.setItem("boat", JSON.stringify(getlocaldata))
-            setbdata(getlocaldata)
+            if(updatedata){
+                let udata = getlocaldata.map((v) => {
+                    if(v.id === data.id){
+                        return data
+                    }else{
+                        return v
+                    }
+                })
+                console.log(udata);
+                localStorage.setItem("boat", JSON.stringify(udata))
+                setbdata(udata)
+
+            }else{
+                getlocaldata.push(newdata)
+                console.log(getlocaldata);
+                localStorage.setItem("boat", JSON.stringify(getlocaldata))
+                setbdata(getlocaldata)
+            }
         }
     }
 
@@ -108,7 +123,7 @@ export default function Boatlist() {
         onSubmit: (values, action) => {
             action.resetForm()
             // console.log(values);
-            handleAdd(values)
+            handleSubmitdata(values)
 
 
         }
