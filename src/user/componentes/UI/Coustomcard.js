@@ -11,22 +11,38 @@ function Coustomcard({ values }) {
                 }}
             >
                 {
-                    values.url ? <img
-                        alt="Sample"
-                        src="https://picsum.photos/300/200"
-                    /> : null
+                    values.url ? null : <img
+                    alt="Sample"
+                    src="https://picsum.photos/300/200"
+                />
                 }
 
                 <CardBody>
                     <CardTitle tag="h5">
-                        {values.size}
+                      <h4>Size:{values.size}</h4>
                     </CardTitle>
                     <CardSubtitle
                         className="mb-2 text-muted"
                         tag="h6"
                     >
-                       {values.price}
+                       <p>Length:{values.Length}</p>
                     </CardSubtitle>
+                    <CardSubtitle
+                        className="mb-2 text-muted"
+                        tag="h6"
+                    >
+                         <p>Engine:{values.engine}</p>
+                     
+                    </CardSubtitle>
+                  
+                    <CardSubtitle
+                        className="mb-2 text-muted"
+                        tag="h6"
+                    >
+
+                       <p>Price:{values.price}</p>
+                    </CardSubtitle>
+                  
                   
                     {
                         values.Button ? <Button>

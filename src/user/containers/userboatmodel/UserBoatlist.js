@@ -1,13 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
-import { Row } from 'reactstrap';
-import React, { useEffect } from 'react';
-import UserBoatlist  from '../../containers/userboatmodel/Boatmodeluser'
-
-
+import React, { useEffect, useState } from 'react';
+import Boatmodeluser from '../userboatmodel/Boatmodeluser'
 
 function UserBoatlist(props) {
-
     const [data, setdata] = useState([])
     const [filterdata, setfilterdata] = useState([])
 
@@ -20,34 +14,26 @@ function UserBoatlist(props) {
 
     }, [])
 
+
+
     const handlechange = (val) => {
         console.log(val);
-
         let boatgetlocaldata = JSON.parse(localStorage.getItem("boat"))
-
         let fdata = boatgetlocaldata.filter((v) =>
-
             v.size.toString().includes(val)
 
-
         )
-
         console.log(fdata);
         setfilterdata(fdata)
 
     }
 
+
+
     return (
         <>
             <div className="section-title">
                 <h2>BOAT LIST</h2>
-                <p>
-                    Aenean enim orci, suscipit vitae sodales ac, semper in ex. Nunc
-                    aliquam eget nibh eu euismod. Donec dapibus blandit quam
-                    volutpat sollicitudin. Aenean ac turpis ante. Mauris velit
-                    sapien, aliquet aliquet rhoncus quis, luctus at neque. Mauris
-                    sit amet massa sed orci vehicula facilisis.
-                </p>
             </div>
 
             <div class="input-group">
@@ -63,9 +49,8 @@ function UserBoatlist(props) {
                 </button>
             </div>
 
-            <div className='container'>
-                <div className='row gap-3' >
-
+            <div className='container' >
+                <div className='row ' >
                     <Boatmodeluser bdata={filterdata.length > 0 ? filterdata : data} />
                 </div>
 
@@ -74,5 +59,6 @@ function UserBoatlist(props) {
     );
 }
 
-export default  UserBoatlist(props) 
-    
+export default UserBoatlist;
+
+

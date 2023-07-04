@@ -75,6 +75,9 @@ function Header(props) {
                   <Link to={"/service"} className="nav-link text-left">Services</Link>
                 </li>
                 <li>
+                  <Link to={"/userboat"} className="nav-link text-left">Boat Models</Link>
+                </li>
+                <li>
                   {/* <a href="testimonials.html" className="nav-link text-left">Testimonials</a> */}
                 </li>
                 <li><Link to={"/blog"} className="nav-link text-left">Blog</Link></li>

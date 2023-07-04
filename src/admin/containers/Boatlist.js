@@ -50,7 +50,12 @@ export default function Boatlist() {
         localStorage.setItem("boat", JSON.stringify(fdata))
 
     }
+    const handleEdit = (evalue) => {
+        console.log(evalue);
+        handleClickOpen()
 
+        formik.setValues(evalue)
+    }
 
     const handleAdd = (data) => {
         console.log(data);
@@ -77,8 +82,8 @@ export default function Boatlist() {
     // .....validation.....
 
     let boatlistSchema = Yup.object({
-        img: Yup.string()
-            .required(),
+        // img: Yup.string()
+        //     .required(),
         size: Yup.string()
             .required("please enter size"),
         Length: Yup.string()
@@ -92,7 +97,7 @@ export default function Boatlist() {
 
     const formik = useFormik({
         initialValues: {
-            img: '',
+            // img: '',
             size: '',
             Length: '',
             engine: '',
@@ -128,23 +133,19 @@ export default function Boatlist() {
             width: 130,
 
             renderCell: (params) => (
-                <DeleteIcon onClick={() => handledelete(params.row.id)}>
+                <>
 
-                </DeleteIcon>
+                    <DeleteIcon onClick={() => handledelete(params.row.id)}>
+
+                    </DeleteIcon>
+
+                    <EditIcon onClick={() => handleEdit(params.row)}>
+
+                    </EditIcon>
+                </>
 
 
             ),
-
-        },
-        {
-            field: 'edit',
-            headerName: 'Edit',
-            width: 130,
-            renderCell: (params) => (
-                <EditIcon >
-
-                </EditIcon>
-            )
 
         },
 
@@ -166,10 +167,10 @@ export default function Boatlist() {
                         <h2
                             style={{
                                 margin: '10px',
-                                textAlign:'center'
+                                textAlign: 'center'
 
                             }}>Fishing Boat</h2>
-                        <div className="social">
+                        {/* <div className="social">
                             <input
                                 type='file'
                                 name="img"
@@ -184,7 +185,7 @@ export default function Boatlist() {
 
                             </input>
                             <span style={{ color: "red" }} className='error'>{errors.img && touched.img ? errors.img : ''}</span>
-                        </div>
+                        </div> */}
 
                         <TextField
                             margin="dense"

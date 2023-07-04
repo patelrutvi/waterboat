@@ -8,6 +8,7 @@ import Blog from '../user/containers/Blog';
 import Footer from '../user/componentes/Footer';
 import Contact from '../user/containers/Contact';
 import Singlepage from '../user/containers/Singlepage';
+import UserBoatlist from '../user/containers/userboatmodel/UserBoatlist';
 
 function UserRoutes(props) {
     return (
@@ -21,7 +22,7 @@ function UserRoutes(props) {
                 <Route path='/blog' element={<Blog />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route  path='/singlepage' element={<Singlepage />}/>
-                {/* <Route  path='/userboatlist' element={<UserBoatlist />}/> */}
+                <Route path='/userboat' element={<UserBoatlist />}/>
 
             </Routes>
             <Footer />
