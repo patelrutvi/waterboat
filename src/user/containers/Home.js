@@ -15,7 +15,8 @@ function Home(props) {
                         </div>
                     </div>
                     <div className="intro-section" style={{ backgroundImage: 'url("assest/images/hero_1.jpg")' }}>
-                        <div className="container">
+              
+                         <div className="container">
                             <div className="row align-items-center">
                                 <div className="col-lg-7 mx-auto text-center" data-aos="fade-up">
                                 <h1>Explore, Discover The Ocean</h1>
