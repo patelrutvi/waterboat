@@ -19,18 +19,6 @@ function Boatmodeluser({ bdata }) {
             }
         </Row>
         </>
-        // <Row >
-        // {
-        //     bdata.map((v, i) => {
-        //         return (
-        //             <Col sm="3">
-        //                 <Coustomcard values={v} />
-
-        //             </Col>
-        //         )
-        //     })
-        // }
-        // </Row>
     );
 }
 

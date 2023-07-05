@@ -1,7 +1,7 @@
 import React from 'react';
 import Adminpanle from '../admin/components/Adminpanle'
 import { Route, Routes } from 'react-router-dom';
-import Boatlist from '../admin/containers/Boatlist';
+import Boatlist from '../admin/containers/Boatlist/Boatlist';
 import Facilities from '../admin/containers/Facilities';
 
 function AdminRoutes(props) {
