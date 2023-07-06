@@ -8,25 +8,13 @@ function Auth(props) {
 
     const [authdata, setauth] = useState('login')
     const [logindata,setlogindata] = useState([])
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+ 
 
-    const handleLogin = (val) => {
-        console.log("loginnn",val);
-
-        let getlocaldata = JSON.parse(localStorage.getItem("login"))
-        console.log(getlocaldata);
-
-        if (getlocaldata === null) {
-            localStorage.setItem("login", JSON.stringify([val]))
-            setlogindata([val])
-        }else {
-            getlocaldata.push(val)
-            console.log(getlocaldata);
-            localStorage.setItem("login", JSON.stringify(getlocaldata))
-            setlogindata(getlocaldata)
-        }
-        navigate('/medicines')
-
+    const handleLogin = () => {
+        console.log("loginnn");
+        localStorage.setItem("login", "true")
+        navigate("/")
     }
 
 
@@ -76,7 +64,10 @@ function Auth(props) {
         onSubmit: (values, action) => {
             action.resetForm()
             console.log(values);
-            handleLogin(values)
+            if( authdata === 'login'){
+                handleLogin()
+            }
+           
         }
     })
 

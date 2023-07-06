@@ -1,7 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header(props) {
+  let login = localStorage.getItem("login")
+ 
+  const handleLogout = () => {
+    localStorage.removeItem("login")
+   
+  }
   return (
     <div>
       <div className="site-mobile-menu site-navbar-target">
@@ -84,11 +90,22 @@ function Header(props) {
                     <li>
                       <Link to={"/contact"} className="nav-link text-left">Contact</Link>
                     </li>
-                    <li>
-                      <Link to={'/auth'} className="nav-link text-left">
-                        <span className="d-none d-md-inline">Login/ Signup</span>
-                      </Link>
-                    </li>
+                    {
+                      login
+                        ?
+                        <li>
+                          <Link to={"/"} className="nav-link text-left" onClick={handleLogout}>
+                            <span className="d-none d-md-inline">LogOut</span>
+                          </Link>
+                        </li>
+                        :
+                        <li>
+                          <Link to={'/auth'} className="nav-link text-left">
+                            <span className="d-none d-md-inline">Login/ Signup</span>
+                          </Link>
+                        </li>
+                    }
+
 
                   </ul>
                 </nav>
