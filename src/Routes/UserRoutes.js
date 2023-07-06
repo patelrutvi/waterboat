@@ -9,6 +9,7 @@ import Footer from '../user/componentes/Footer';
 import Contact from '../user/containers/Contact';
 import Singlepage from '../user/containers/Singlepage';
 import UserBoatlist from '../user/containers/userboatmodel/UserBoatlist';
+import Auth from '../user/containers/Auth';
 
 function UserRoutes(props) {
     return (
@@ -23,6 +24,7 @@ function UserRoutes(props) {
                 <Route path='/contact' element={<Contact />} />
                 <Route  path='/singlepage' element={<Singlepage />}/>
                 <Route path='/userboat' element={<UserBoatlist />}/>
+                <Route path='/auth' element={<Auth />}/>
 
             </Routes>
             <Footer />
