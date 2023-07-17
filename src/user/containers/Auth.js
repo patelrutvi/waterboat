@@ -3,6 +3,8 @@ import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'
+import Button from '../componentes/UI/Button/Button';
+import Input from '../componentes/UI/Input/Input';
 
 function Auth(props) {
 
@@ -106,7 +108,8 @@ function Auth(props) {
                                         (authdata === 'sign up'
                                             ?
                                             <div className="col-md-7 form-group">
-                                                <input type="text"
+                                               
+                                                <Input type="text"
                                                     name="name"
                                                     className="form-control"
                                                     id="name"
@@ -127,7 +130,7 @@ function Auth(props) {
                                 }
                                 {/* ..........email.......... */}
                                 <div className="col-md-7 form-group mt-3 mt-md-0">
-                                    <input type="email"
+                                    <Input type="email"
                                         className="form-control"
                                         name="email" id="email"
                                         placeholder="Your Email"
@@ -146,7 +149,7 @@ function Auth(props) {
                                     authdata === 'login'
                                         ?
                                         <div className="col-md-7 form-group mt-3 mt-md-0">
-                                            <input type="password"
+                                            <Input type="password"
                                                 className="form-control"
                                                 name="pass" id="pass"
                                                 placeholder="Your Password"
@@ -164,7 +167,7 @@ function Auth(props) {
                                         (authdata === 'sign up'
                                             ?
                                             <div className="col-md-7 form-group mt-3 mt-md-0">
-                                                <input type="password"
+                                                <Input type="password"
                                                     className="form-control"
                                                     name="pass"
                                                     id="pass"
@@ -188,12 +191,13 @@ function Auth(props) {
                             {
                                 authdata === 'login'
                                     ?
-                                    <div className="text-center"><button type="submit" className="btn btn-primary rounded-0 px-3 px-5">Login</button></div>
+                                    <div className="text-center"> <Button  className="btn btn-primary rounded-0 px-3 px-5" type="primary" btnDisable={true}>Login</Button></div>
+                                   
                                     :
                                     (authdata === 'sign up'
                                         ?
-                                        <div className="text-center"><button type="submit" className="btn btn-primary rounded-0 px-3 px-5">Sign Up</button></div>
-                                        : <div className="text-center"><button type="submit" className="btn btn-primary rounded-0 px-3 px-5">submit</button></div>
+                                        <div className="text-center"><Button  className="btn btn-primary rounded-0 px-3 px-5" type="secondary">Sign Up</Button></div>
+                                        : <div className="text-center"><Button  className="btn btn-primary rounded-0 px-3 px-5" type="outlined">submit</Button></div>
                                     )
 
                             }
