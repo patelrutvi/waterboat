@@ -11,6 +11,7 @@ import Singlepage from '../user/containers/Singlepage';
 import UserBoatlist from '../user/containers/userboatmodel/UserBoatlist';
 import Auth from '../user/containers/Auth';
 import Protected from './Protected';
+import Counter from '../user/containers/counter/Counter';
 
 function UserRoutes(props) {
     return (
@@ -25,6 +26,7 @@ function UserRoutes(props) {
                 <Route path='/contact' element={<Contact />} />
                 <Route  path='/singlepage' element={<Singlepage />}/>
                 <Route  path='/auth' element={<Auth />}/>
+                <Route  path='/counter' element={<Counter />}/>
                 
                 <Route element={<Protected />}>
                 <Route path='/userboat' element={<UserBoatlist />}/>

@@ -90,6 +90,9 @@ function Header(props) {
                     <li>
                       <Link to={"/contact"} className="nav-link text-left">Contact</Link>
                     </li>
+                    <li>
+                      <Link to={"/counter"} className="nav-link text-left">Counter</Link>
+                    </li>
                     {
                       login
                         ?
