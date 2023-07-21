@@ -34,7 +34,6 @@ export default function Boatlist() {
     }
     const handleEdit = (evalue) => {
         console.log(evalue);
-      
         setupdatedata(evalue)
 
     }

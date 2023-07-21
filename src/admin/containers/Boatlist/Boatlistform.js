@@ -17,6 +17,7 @@ function Boatlistform({onhandlesubmit,onupdate}) {
             if(onupdate){
                 handleClickOpen()
                 formik.setValues(onupdate)
+               
             }
         },[onupdate])
     const handleClickOpen = () => {
