@@ -1,0 +1,70 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "jsonserver",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "BoatFacilities": [
+    {
+      "id": 101,
+      "iceroomsize": "10x10",
+      "cabinesize": "15x15",
+      "staring": "smooth",
+      "kitchenroomsize": "14x17"
+    },
+    {
+      "id": 102,
+      "iceroomsize": "12x12",
+      "cabinesize": "18x18",
+      "staring": "hard",
+      "kitchenroomsize": "15X18"
+    },
+    {
+      "id": 103,
+      "iceroomsize": "10x10",
+      "cabinesize": "15x15",
+      "staring": "smooth",
+      "kitchenroomsize": "13x18"
+    },
+    {
+      "id": 104,
+      "iceroomsize": "13x13",
+      "cabinesize": "16x16",
+      "staring": "smooth",
+      "kitchenroomsize": "17x18"
+    },
+    {
+      "iceroomsize": "12x34",
+      "cabinesize": "10x10",
+      "staring": "xzczx",
+      "kitchenroomsize": "12x13",
+      "id": 105
+    },
+    {
+      "iceroomsize": "14x14",
+      "cabinesize": "10x13",
+      "staring": "smooth",
+      "kitchenroomsize": "12x13",
+      "id": 106
+    },
+    {
+      "iceroomsize": "11x11",
+      "cabinesize": "12x14",
+      "staring": "14x17",
+      "kitchenroomsize": "16x12",
+      "id": 108
+    }
+  ]
+}

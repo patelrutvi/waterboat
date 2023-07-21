@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'
 import Button from '../componentes/UI/Button/Button';
 import Input from '../componentes/UI/Input/Input';
+import Span from '../componentes/UI/span/Span';
 
 function Auth(props) {
 
@@ -119,9 +120,11 @@ function Auth(props) {
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
                                                     value={values.name}
+                                                    errorText={errors.name && touched.name ? errors.name : ''}
                                                 />
                                                 <div className="validate" />
-                                                <span className='error'>{errors.name && touched.name ? errors.name : ''}</span>
+                                                {/* <span className='error'></span> */}
+                                                <Span className='error'>{errors.name && touched.name ? errors.name : ''}</Span>
                                             </div>
                                             :
                                             null
@@ -139,9 +142,10 @@ function Auth(props) {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.email}
+                                        errorText={errors.email && touched.email ? errors.email : ''}
                                     />
                                     <div className="validate" />
-                                    <span className='error'>{errors.email && touched.email ? errors.email : ''}</span>
+                                    <Span className='error'>{errors.email && touched.email ? errors.email : ''}</Span>
                                 </div>
 
                                 {/* ...........password......... */}
@@ -158,10 +162,11 @@ function Auth(props) {
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 value={values.pass}
+                                                errorText={errors.pass && touched.pass ? errors.pass : ''}
 
                                             />
                                             <div className="validate" />
-                                            <span className='error'>{errors.pass && touched.pass ? errors.pass : ''}</span>
+                                            <Span className='error'>{errors.pass && touched.pass ? errors.pass : ''}</Span>
                                         </div>
                                         :
                                         (authdata === 'sign up'
@@ -177,10 +182,10 @@ function Auth(props) {
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
                                                     value={values.pass}
-
+                                                    errorText={errors.pass && touched.pass ? errors.pass : ''}
                                                 />
                                                 <div className="validate" />
-                                                <span className='error'>{errors.pass && touched.pass ? errors.pass : ''}</span>
+                                                <Span className='error'>{errors.pass && touched.pass ? errors.pass : ''}</Span>
                                             </div>
                                             :
                                             null
@@ -191,7 +196,7 @@ function Auth(props) {
                             {
                                 authdata === 'login'
                                     ?
-                                    <div className="text-center"> <Button  className="btn btn-primary rounded-0 px-3 px-5" type="primary" btnDisable={true}>Login</Button></div>
+                                    <div className="text-center"> <Button  className="btn btn-primary rounded-0 px-3 px-5" type="primary" >Login</Button></div>
                                    
                                     :
                                     (authdata === 'sign up'
